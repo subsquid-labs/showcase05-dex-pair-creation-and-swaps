@@ -14,16 +14,17 @@ processor.run(new TypeormDatabase({supportHotBlocks: false}), async (ctx) => {
         for (let log of block.logs) {
             if (FACTORY_ADDRESSES.includes(log.address) && log.topics[0] === factoryv2abi.events.PairCreated.topic) {
                 let {token0, token1, pair} = factoryv2abi.events.PairCreated.decode(log)
+                let address = pair.toLowerCase()
                 let newPair = new Pair({
                     id: log.id,
                     createdAtHeight: block.header.height,
                     createdByFactory: log.address,
                     createdWithTxn: log.transactionHash,
-                    address: pair,
+                    address,
                     token0,
                     token1
                 })
-                pairs.set(pair, newPair)
+                pairs.set(address, newPair)
                 newPairs.push(newPair)
             }
             if (log.topics[0] === pairabi.events.Swap.topic && pairs.has(log.address)) {
