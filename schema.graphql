@@ -1,0 +1,23 @@
+type Pair @entity {
+  id: ID!
+  createdAtHeight: Int! @index
+  createdByFactory: String! @index
+  createdWithTxn: String! @index
+  address: String! @index
+  token0: String! @index
+  token1: String! @index
+  swaps: [Swap!] @derivedFrom(field: "pair")
+}
+
+type Swap @entity {
+  id: ID!
+  block: Int! @index
+  pair: Pair!
+  txnHash: String! @index
+  sender: String! @index
+  amount0In: BigInt!
+  amount1In: BigInt!
+  amount0Out: BigInt!
+  amount1Out: BigInt!
+  to: String! @index
+}
