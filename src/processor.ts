@@ -1,4 +1,3 @@
-import {lookupArchive} from '@subsquid/archive-registry'
 import {
     BlockHeader,
     DataHandlerContext,
@@ -17,7 +16,7 @@ export const FACTORY_ADDRESSES = [
 
 export const processor = new EvmBatchProcessor()
     .setDataSource({
-        archive: lookupArchive('binance'),
+        archive: 'https://v2.archive.subsquid.io/network/binance-mainnet',
     })
     .setBlockRange({ from: 586_851 })
     .addLog({
