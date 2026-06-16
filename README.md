@@ -1,6 +1,6 @@
 # Showcase squid 05: DEX pair creation and swaps
 
-This squid captures pair creation and `Swap` events emitted by [Pancakeswap](https://pancakeswap.finance) contracts. It follows the [factory pattern](https://docs.subsquid.io/evm-indexing/factory-contracts/). See more examples of requesting data with squids on the [showcase page](https://docs.subsquid.io/evm-indexing/configuration/showcase) of Subsquid documentation.
+This squid captures pair creation and `Swap` events emitted by [Pancakeswap](https://pancakeswap.finance) contracts. It follows the [factory pattern](https://docs.sqd.dev/en/sdk). See more examples of requesting data with squids on the [showcase page](https://docs.sqd.dev/en/sdk) of Subsquid documentation.
 
 Dependencies: Node.js, Docker.
 
